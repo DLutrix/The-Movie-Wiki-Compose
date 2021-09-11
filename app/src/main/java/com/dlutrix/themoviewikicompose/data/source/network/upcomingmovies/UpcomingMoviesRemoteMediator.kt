@@ -56,7 +56,6 @@ class UpcomingMoviesRemoteMediator(
                     )
                 }
                 db.upcomingMoviesRemoteKeyDao().insertAllKeys(keys)
-                Log.e("aaa", response.toString())
             }
             MediatorResult.Success(endOfPaginationReached = isEndOfList)
         } catch (_: IOException) {
