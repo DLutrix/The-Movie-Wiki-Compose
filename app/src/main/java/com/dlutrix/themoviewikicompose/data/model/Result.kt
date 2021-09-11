@@ -4,7 +4,7 @@ package com.dlutrix.themoviewikicompose.data.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class Movie(
+data class Result(
     @SerializedName("backdrop_path")
     val backdropPath: String?,
     @SerializedName("id")

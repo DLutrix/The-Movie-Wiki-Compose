@@ -9,7 +9,7 @@ data class UpcomingMovies(
     @SerializedName("page")
     val page: Int?,
     @SerializedName("results")
-    val movies: List<Movie>?,
+    val results: List<Result>?,
     @SerializedName("total_pages")
     val totalPages: Int?,
     @SerializedName("total_results")
