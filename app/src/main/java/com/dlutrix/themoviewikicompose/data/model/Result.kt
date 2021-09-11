@@ -19,6 +19,4 @@ data class Result(
     val title: String?,
     @SerializedName("vote_average")
     val voteAverage: Double?,
-    @Expose(serialize = false, deserialize = false)
-    var isUpcomingMovies: Boolean
 )
