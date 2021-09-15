@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
@@ -40,6 +41,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             TheMovieWikiComposeTheme {
                 val systemUiController = rememberSystemUiController()
+                val navigationBarColor = MaterialTheme.colors.surface
+                val useDarkIcons = MaterialTheme.colors.isLight
 
                 val contentPaddings = rememberInsetsPaddingValues(
                     insets = LocalWindowInsets.current.navigationBars,
@@ -50,11 +53,12 @@ class MainActivity : ComponentActivity() {
 
                 SideEffect {
                     systemUiController.setSystemBarsColor(
-                        color = Color.Transparent
+                        color = Color.Transparent,
+                        darkIcons = useDarkIcons
                     )
                     systemUiController.setNavigationBarColor(
-                        color = Snow,
-                        darkIcons = true
+                        color = navigationBarColor,
+                        darkIcons = useDarkIcons
                     )
                 }
 
