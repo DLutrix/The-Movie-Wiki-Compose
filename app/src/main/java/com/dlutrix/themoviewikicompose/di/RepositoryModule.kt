@@ -1,6 +1,7 @@
 package com.dlutrix.themoviewikicompose.di
 
 import com.dlutrix.themoviewikicompose.data.source.network.TMDBApiService
+import com.dlutrix.themoviewikicompose.data.source.network.moviedetail.MovieDetailRepository
 import com.dlutrix.themoviewikicompose.data.source.network.nowplayingmovies.NowPlayingMoviesRepository
 import com.dlutrix.themoviewikicompose.data.source.network.upcomingmovies.UpcomingMoviesRepository
 import com.dlutrix.themoviewikicompose.data.source.persistence.MovieDatabase
@@ -27,4 +28,10 @@ object RepositoryModule {
         api: TMDBApiService,
         db: MovieDatabase
     ) = NowPlayingMoviesRepository(api, db)
+
+    @Provides
+    @ViewModelScoped
+    fun provideMovieDetailRepository(
+        api: TMDBApiService
+    ) = MovieDetailRepository(api)
 }

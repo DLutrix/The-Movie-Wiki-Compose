@@ -7,12 +7,12 @@ import retrofit2.HttpException
 import java.io.IOException
 
 class MovieDetailRepository(
-    private val service: TMDBApiService
+    private val api: TMDBApiService
 ) {
 
     suspend fun getMovieDetail(movieId: Int): Resource<MovieDetail> {
         return try {
-            val response = service.getMovieDetail(movieId)
+            val response = api.getMovieDetail(movieId)
             if (response.isSuccessful) {
                 Resource.Success(response.body())
             } else {
