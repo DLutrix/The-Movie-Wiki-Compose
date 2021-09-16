@@ -31,7 +31,6 @@ import coil.compose.rememberImagePainter
 import com.dlutrix.themoviewikicompose.R
 import com.dlutrix.themoviewikicompose.data.entity.Movie
 import com.dlutrix.themoviewikicompose.ui.theme.WhiteSmoke
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @ExperimentalPagingApi
@@ -113,7 +112,12 @@ fun UpcomingMovies(
                     loadState.append is LoadState.Error -> {
                         val e = movies.loadState.append as LoadState.Error
                         item {
-                            ErrorItem(message = e.error.localizedMessage!!, onClickRetry = {})
+                            ErrorItem(
+                                message = e.error.localizedMessage!!,
+                                onClickRetry = {
+                                    movies.retry()
+                                }
+                            )
                         }
                     }
                 }
