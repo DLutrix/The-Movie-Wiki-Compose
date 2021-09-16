@@ -13,7 +13,7 @@ data class Logo(
     @SerializedName("iso_639_1")
     val iso6391: String?,
     @SerializedName("vote_average")
-    val voteAverage: Int?,
+    val voteAverage: Double?,
     @SerializedName("vote_count")
     val voteCount: Int?,
     @SerializedName("width")
