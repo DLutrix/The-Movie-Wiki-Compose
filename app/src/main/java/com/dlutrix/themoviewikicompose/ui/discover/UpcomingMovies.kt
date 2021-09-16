@@ -1,6 +1,8 @@
 package com.dlutrix.themoviewikicompose.ui.discover
 
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -52,9 +54,7 @@ fun UpcomingMovies(
 
     val paddingSize by animateDpAsState(
         targetValue = paddingState,
-        animationSpec = tween(
-            durationMillis = 300
-        )
+        spring(Spring.DampingRatioHighBouncy)
     )
 
     val scope = rememberCoroutineScope()
